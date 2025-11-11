@@ -18,14 +18,20 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 	const std::string CLIENT_HASH = __hyprland_api_get_client_hash();
 
 	if (COMPOSITOR_HASH != CLIENT_HASH) {
+		std::string message = std::format(
+		    "[hy3] hy3 was compiled for a different version of hyprland; refusing to load.\n"
+		    "Compositor hash: {}\nClient hash: {}",
+		    COMPOSITOR_HASH,
+		    CLIENT_HASH
+		);
 		HyprlandAPI::addNotification(
 		    PHANDLE,
-		    "[hy3] hy3 was compiled for a different version of hyprland; refusing to load.",
+		    message,
 		    CHyprColor {1.0, 0.2, 0.2, 1.0},
 		    10000
 		);
 
-		throw std::runtime_error("[hy3] target hyprland version mismatch");
+		throw std::runtime_error("[hy3] target hyprland version mismatch xDD");
 	}
 #endif
 
