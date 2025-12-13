@@ -31,7 +31,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 		    10000
 		);
 
-		throw std::runtime_error("[hy3] target hyprland version mismatch xDD");
+		throw std::runtime_error("[hy3] target hyprland version mismatch");
 	}
 #endif
 
